@@ -17,7 +17,7 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '/api': 'http:localhost:8080/api/'
+           '/api': 'https://146e-50-235-214-83.ngrok-free.app/api'
         }
     }
 })

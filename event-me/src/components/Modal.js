@@ -34,7 +34,7 @@ const openModal = (modal) => {
 // Close modal
 const closeModal = (modal) => {
     const { documentElement: html } = document;
-    html.classlist.remove(isOpenClass);
+    html.classList.remove(isOpenClass);
     html.dataset.modal = null;
     modal.close();
     html.style.removeProperty(scrollbarWidthCssVar);

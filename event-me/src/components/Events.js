@@ -4,7 +4,12 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const loadEventsData = async () => {
   try {
-    const response = await fetch(`${API_URL}/events`);
+        const response = await fetch(`${API_URL}/events`, {
+            method: "get",
+            headers: new Headers({
+                "ngrok-skip-browser-warning": "69420",
+            }),
+        });
     return response.json();
   } catch (e) {
     console.error(e);
@@ -55,10 +60,11 @@ export const EventModal = (event) => {
 export const EventCard = (e) => {
   const eventDate = new Date(e.date);
   const isPast = eventDate < new Date();
+  console.log(e);
   return `
 <article class="event" >
 <header>
-    ${e.imageUrl && `<img src=${e.imageUrl} alt="${e.title} thumbnail" />`}
+    ${e.image_url && `<img src=${e.image_url} alt="${e.title} thumbnail" />`}
 </header>
     <main>
         <h4>${e.title}</h4>
@@ -98,7 +104,7 @@ export const EventsSection = (title, events) => {
 // https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 export const Events = await (async () => {
   const all = await loadEventsData();
-  const past = all.filter((e) => (new Date(e.date) < new Date())); gd
+  const past = all.filter((e) => (new Date(e.date) < new Date()));
   const upcoming = all.filter((e) => (new Date(e.date) > new Date()));
   return `
     ${EventsSection('Upcoming', upcoming)}

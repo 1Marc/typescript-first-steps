@@ -7,7 +7,7 @@ const Header = `
         <h1 class=".parkinsans">event me</h1>
         <p>All the events you never knew you needed to attend!</p>
     </hgroup>
-    <a href="#" role="toggle" id="theeme"  title="Toggle color scheme" >
+    <a href="#" role="toggle" id="theme"  title="Toggle color scheme" >
         ${ThemeIcon} 
     </a>
 </header>
